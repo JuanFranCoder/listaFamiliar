@@ -34,5 +34,17 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Producto": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "ListaFamiliar": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Usuario": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }
