@@ -18,4 +18,22 @@ module.exports = function(Listafamiliar) {
         });
         next();
     });
+
+    /**
+    * Un usuario crea una solicitud para unirse a una listaFamiliar
+    * @param {object} req Objeto que contiene objeto request
+    * @param {Function(Error, object)} callback
+    */
+   
+    Listafamiliar.prototype.solicitar = function(req, callback) {
+        var listaFamiliar = this;
+        listaFamiliar.solicitudes.add(req.accessToken.userId, function(err){
+            if(err) callback(err);
+            var solicitud = {
+                listaFamiliarId:this.id,
+                usuarioId:req.accessToken.userId
+            }
+            callback(null, solicitud);
+        });
+    };   
 };

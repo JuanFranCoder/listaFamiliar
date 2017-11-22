@@ -48,7 +48,43 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "solicitar"
     }
   ],
-  "methods": {}
+  "methods": {
+    "prototype.solicitar": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "required": true,
+          "description": "Objeto que contiene objeto request",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "solicitud",
+          "type": "object",
+          "root": true,
+          "description": "Asociación entre el id del usuario y el id de la lista"
+        }
+      ],
+      "description": "Un usuario crea una solicitud para unirse a una listaFamiliar",
+      "http": [
+        {
+          "path": "/solicitar",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
