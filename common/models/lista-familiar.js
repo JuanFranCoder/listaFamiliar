@@ -30,7 +30,7 @@ module.exports = function(Listafamiliar) {
         listaFamiliar.solicitudes.add(req.accessToken.userId, function(err){
             if(err) callback(err);
             var solicitud = {
-                listaFamiliarId:this.id,
+                listaFamiliarId:listaFamiliar.id,
                 usuarioId:req.accessToken.userId
             }
             callback(null, solicitud);
