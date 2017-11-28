@@ -45,6 +45,13 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "aceptarSolicitud"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "rechazarSolicitud"
     }
   ],
   "methods": {
@@ -73,6 +80,34 @@
         {
           "path": "/aceptarsolicitud",
           "verb": "put"
+        }
+      ]
+    },
+    "prototype.rechazarSolicitud": {
+      "accepts": [
+        {
+          "arg": "context",
+          "type": "object",
+          "required": true,
+          "description": "Objeto context",
+          "http": {
+            "source": "context"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaUsuarios",
+          "type": "array",
+          "root": true,
+          "description": "Devuelve un array con todos los objetos usuario"
+        }
+      ],
+      "description": "Un usuario que participa en una lista puede denegar el acceso a un usuario que lo haya solicitado",
+      "http": [
+        {
+          "path": "/rechazarSolicitud",
+          "verb": "delete"
         }
       ]
     }
