@@ -29,7 +29,43 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "limpiarLista"
     }
   ],
-  "methods": {}
+  "methods": {
+    "limpiarLista": {
+      "accepts": [
+        {
+          "arg": "context",
+          "type": "object",
+          "required": true,
+          "description": "Objeto context",
+          "http": {
+            "source": "context"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "productos",
+          "type": "array",
+          "root": true,
+          "description": "Devuelve un array con todos los productos de la lista familiar"
+        }
+      ],
+      "description": "Pone a false el atributo comprar de todos los productos de la listaFamiliar asociada al usuario autenticado",
+      "http": [
+        {
+          "path": "/limpiarLista",
+          "verb": "put"
+        }
+      ]
+    }
+  }
 }
