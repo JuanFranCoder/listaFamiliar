@@ -55,6 +55,13 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "mostrarUsuarios"
     }
   ],
   "methods": {
@@ -83,6 +90,34 @@
         {
           "path": "/solicitar",
           "verb": "post"
+        }
+      ]
+    },
+    "mostrarUsuarios": {
+      "accepts": [
+        {
+          "arg": "context",
+          "type": "object",
+          "required": true,
+          "description": "Objeto context",
+          "http": {
+            "source": "context"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaUsuarios",
+          "type": "array",
+          "root": true,
+          "description": "Muestra un array de objetos Usuario que forman parte de mi listaFamiliar"
+        }
+      ],
+      "description": "Muestra los usuarios de la listaFamiliar a la que pertenezco",
+      "http": [
+        {
+          "path": "/mostrarUsuarios",
+          "verb": "get"
         }
       ]
     }
