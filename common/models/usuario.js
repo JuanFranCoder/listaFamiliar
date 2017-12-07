@@ -55,11 +55,6 @@ module.exports = function (Usuario) {
      */
 
     Usuario.prototype.rechazarSolicitud = function (context, callback) {
-        /*
-        var listaUsuarios;
-        // TODO
-        callback(null, listaUsuarios);
-        */
         var listaUsuarios = [];
         var usuario_solicitante = this;
         var mi_listaFamiliarId = 0;
@@ -74,8 +69,7 @@ module.exports = function (Usuario) {
 
             usuario_solicitante.solicitudes.findById(mi_listaFamiliarId, function (err, solicitud) {
                 if(err) callback(err);
-                console.log("Mi solicitud: "+solicitud); // echo [object Object]                
-                //callback(null, solicitud);
+                console.log("Mi solicitud: "+solicitud);
 
                 usuario_solicitante.solicitudes.remove(mi_listaFamiliarId, function (err) {
                     if (err) callback(err);
