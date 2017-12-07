@@ -52,7 +52,7 @@ module.exports = function (Listafamiliar) {
             if(err)callback(err);
             var id_listaFamiliar_usuario = usuario.listaFamiliarId;
             console.log("El id de la lista familiar del usuario logueado es: "+id_listaFamiliar_usuario);
-            Usuario.find({where:{listaFamiliarId:id_listaFamiliar_usuario}}, function(err, listaUsuarios){
+            Usuario.find({where:{listaFamiliarId:id_listaFamiliar_usuario}, fields:["nombre","apellidos"]}, function(err, listaUsuarios){
                 if(err)callback(err);
                 console.log(listaUsuarios);
                 callback(null, listaUsuarios);
