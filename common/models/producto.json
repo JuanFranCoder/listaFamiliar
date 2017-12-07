@@ -36,6 +36,13 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "limpiarLista"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "miembroLista",
+      "permission": "ALLOW",
+      "property": "comprado"
     }
   ],
   "methods": {
@@ -63,6 +70,34 @@
       "http": [
         {
           "path": "/limpiarLista",
+          "verb": "put"
+        }
+      ]
+    },
+    "prototype.comprado": {
+      "accepts": [
+        {
+          "arg": "context",
+          "type": "object",
+          "required": true,
+          "description": "Objeto context",
+          "http": {
+            "source": "context"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "listaProductos",
+          "type": "array",
+          "root": true,
+          "description": "Devuelve listaProductos de la listaFamiliar del usuario autenticado"
+        }
+      ],
+      "description": "Cambia el valor del atributo comprar por su opuesto, de true a false o viceversa",
+      "http": [
+        {
+          "path": "/comprado",
           "verb": "put"
         }
       ]
