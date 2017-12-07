@@ -43,6 +43,30 @@
       "principalId": "miembroLista",
       "permission": "ALLOW",
       "property": "comprado"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "miembroLista",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "miembroLista",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "perteneceAlgunaLista",
+      "permission": "ALLOW"
     }
   ],
   "methods": {
